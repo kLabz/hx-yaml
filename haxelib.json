@@ -1,0 +1,16 @@
+{
+	"name": "yaml",
+	"description": "A cross platform YAML 1.2 parser and renderer for Haxe.",
+	"license": "MIT",
+  "classPath": "src",
+	"tags": [
+    "cross",
+    "utility"
+  ],
+	"contributors": [
+    "mikestead",
+    "klabz"
+  ],
+	"version": "1.3.0",
+	"url": "https://gitlab.com/herakles-erp/web/externs/yaml"
+}
