@@ -10,10 +10,10 @@ class Yaml
 {
 	/**
 	Parse a yaml document into object form.
-	 
+
 	@param document     The yaml document to parse.
 	@param ?options     Parsing options (optional).
-	 
+
 	@return The parsed yaml document in object form.
 	*/
 	public static function parse(document:String, ?options:ParserOptions):Dynamic
@@ -22,13 +22,13 @@ class Yaml
 		return new Parser().parse(document, options);
 	}
 
-	#if sys
+	#if (sys || nodejs)
 	/**
 	Read a yaml document from disk and parse into object form.
-	
+
 	@param filePath     The path to read the yaml file.
 	@param ?options     Parsing options (optional).
-	
+
 	@return The parsed yaml document in object form.
 	*/
 	public static function read(filePath:String, ?options:ParserOptions):Dynamic
@@ -39,10 +39,10 @@ class Yaml
 
 	/**
 	Render a yaml object graph as a yaml text document.
-	
+
 	@param data         The root object to render.
 	@param ?options     Rendering options (optional).
-	
+
 	@return The rendered yaml document.
 	*/
 	public static function render(data:Dynamic, ?options:RenderOptions):String
@@ -51,10 +51,10 @@ class Yaml
 		return new Renderer().render(data, options);
 	}
 
-	#if sys
+	#if (sys || nodejs)
 	/**
 	Render an object graph as a yaml text document and write it to disk.
-	
+
 	@param filePath     The path to write the yaml document.
 	@param data         The root object to render.
 	@param ?options     Rendering options (optional).
@@ -64,6 +64,6 @@ class Yaml
 		sys.io.File.saveContent(filePath, render(data, options));
 	}
 	#end
-	
+
     private function new() {}
 }
